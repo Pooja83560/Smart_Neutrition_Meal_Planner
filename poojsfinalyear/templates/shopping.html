@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Smart Shopping List - AI Meal Planner</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="nav-bar">
+            <a href="/">🏠 Home</a>
+            <a href="/meal-prep">🍳 Meal Prep</a>
+            <a href="/recipes">📖 Recipes</a>
+            <a href="/progress">📊 Progress</a>
+            <a href="/shopping" class="active">🛒 Shopping</a>
+        </nav>
+        
+        <h1>🛒 Smart Shopping List Generator</h1>
+        
+        <div class="shopping-controls">
+            <div class="control-group">
+                <label>Shopping for:</label>
+                <select id="shopping-duration">
+                    <option value="week" selected>This Week</option>
+                    <option value="month">This Month</option>
+                    <option value="custom">Custom Range</option>
+                </select>
+            </div>
+            <div class="control-group">
+                <label>Dietary Preference:</label>
+                <select id="diet-filter">
+                    <option value="vegetarian" selected>Vegetarian</option>
+                    <option value="vegan">Vegan</option>
+                    <option value="omnivore">Non-Vegetarian</option>
+                </select>
+            </div>
+            <button class="btn primary" onclick="generateList()">🔄 Regenerate List</button>
+        </div>
+
+        <div class="shopping-summary">
+            <div class="summary-card">
+                <h3>📊 Shopping Summary</h3>
+                <div class="summary-stats">
+                    <div class="stat">
+                        <span class="number">45</span>
+                        <span class="label">Total Items</span>
+                    </div>
+                    <div class="stat">
+                        <span class="number">₹2,500</span>
+                        <span class="label">Est. Cost</span>
+                    </div>
+                    <div class="stat">
+                        <span class="number">7</span>
+                        <span class="label">Days Covered</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="shopping-sections">
+            <div class="shopping-category">
+                <h2>🌾 Grains & Lentils</h2>
+                <div class="category-items">
+                    <div class="shopping-item">
+                        <input type="checkbox" id="rice" checked>
+                        <label for="rice">
+                            <span class="item-name">Basmati Rice</span>
+                            <span class="item-quantity">2 kg</span>
+                            <span class="item-price">₹180</span>
+                        </label>
+                    </div>
+                    <div class="shopping-item">
+                        <input type="checkbox" id="toor-dal" checked>
+                        <label for="toor-dal">
+                            <span class="item-name">Toor Dal</span>
+                            <span class="item-quantity">1 kg</span>
+                            <span class="item-price">₹120</span>
+                        </label>
+                    </div>
+                    <div class="shopping-item">
+                        <input type="checkbox" id="moong-dal" checked>
+                        <label for="moong-dal">
+                            <span class="item-name">Moong Dal</span>
+                            <span class="item-quantity">500g</span>
+                            <span class="item-price">₹80</span>
+                        </label>
+                    </div>
+                    <div class="shopping-item">
+                        <input type="checkbox" id="wheat-flour" checked>
+                        <label for="wheat-flour">
+                            <span class="item-name">Wheat Flour</span>
+                            <span class="item-quantity">5 kg</span>
+                            <span class="item-price">₹200</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="shopping-category">
+                <h2>🥬 Fresh Vegetables</h2>
+                <div class="category-items">
+                    <div class="shopping-item">
+                        <input type="checkbox" id="onions" checked>
+                        <label for="onions">
+                            <span class="item-name">Onions</span>
+                            <span class="item-quantity">2 kg</span>
+                            <span class="item-price">₹60</span>
+                        </label>
+                    </div>
+                    <div class="shopping-item">
+                        <input type="checkbox" id="tomatoes" checked>
+                        <label for="tomatoes">
+                            <span class="item-name">Tomatoes</span>
+                            <span class="item-quantity">1 kg</span>
+                            <span class="item-price">₹40</span>
+                        </label>
+                    </div>
+                    <div class="shopping-item">
+                        <input type="checkbox" id="potatoes" checked>
+                        <label for="potatoes">
+                            <span class="item-name">Potatoes</span>
+                            <span class="item-quantity">2 kg</span>
+                            <span class="item-price">₹50</span>
+                        </label>
+                    </div>
+                    <div class="shopping-item">
+                        <input type="checkbox" id="spinach" checked>
+                        <label for="spinach">
+                            <span class="item-name">Spinach</span>
+                            <span class="item-quantity">500g</span>
+                            <span class="item-price">₹20</span>
+                        </label>
+                    </div>
+                    <div class="shopping-item">
+                        <input type="checkbox" id="cauliflower" checked>
+                        <label for="cauliflower">
+                            <span class="item-name">Cauliflower</span>
+                            <span class="item-quantity">1 piece</span>
+                            <span class="item-price">₹30</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="shopping-category">
+                <h2>🌶️ Spices & Condiments</h2>
+                <div class="category-items">
+                    <div class="shopping-item">
+                        <input type="checkbox" id="turmeric" checked>
+                        <label for="turmeric">
+                            <span class="item-name">Turmeric Powder</span>
+                            <span class="item-quantity">100g</span>
+                            <span class="item-price">₹25</span>
+                        </label>
+                    </div>
+                    <div class="shopping-item">
+                        <input type="checkbox" id="coriander" checked>
+                        <label for="coriander">
+                            <span class="item-name">Coriander Powder</span>
+                            <span class="item-quantity">100g</span>
+                            <span class="item-price">₹30</span>
+                        </label>
+                    </div>
+                    <div class="shopping-item">
+                        <input type="checkbox" id="cumin" checked>
+                        <label for="cumin">
+                            <span class="item-name">Cumin Seeds</span>
+                            <span class="item-quantity">100g</span>
+                            <span class="item-price">₹35</span>
+                        </label>
+                    </div>
+                    <div class="shopping-item">
+                        <input type="checkbox" id="garam-masala" checked>
+                        <label for="garam-masala">
+                            <span class="item-name">Garam Masala</span>
+                            <span class="item-quantity">50g</span>
+                            <span class="item-price">₹40</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="shopping-category">
+                <h2>🥛 Dairy & Pantry</h2>
+                <div class="category-items">
+                    <div class="shopping-item">
+                        <input type="checkbox" id="cooking-oil" checked>
+                        <label for="cooking-oil">
+                            <span class="item-name">Cooking Oil</span>
+                            <span class="item-quantity">1 L</span>
+                            <span class="item-price">₹150</span>
+                        </label>
+                    </div>
+                    <div class="shopping-item">
+                        <input type="checkbox" id="salt" checked>
+                        <label for="salt">
+                            <span class="item-name">Salt</span>
+                            <span class="item-quantity">1 kg</span>
+                            <span class="item-price">₹20</span>
+                        </label>
+                    </div>
+                    <div class="shopping-item">
+                        <input type="checkbox" id="jaggery" checked>
+                        <label for="jaggery">
+                            <span class="item-name">Jaggery</span>
+                            <span class="item-quantity">500g</span>
+                            <span class="item-price">₹60</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="shopping-actions">
+            <div class="total-cost">
+                <h3>💰 Total Estimated Cost: ₹<span id="total-cost">2,140</span></h3>
+                <p>*Prices may vary by location and store</p>
+            </div>
+            
+            <div class="action-buttons">
+                <button class="btn primary" onclick="downloadList()">📥 Download List</button>
+                <button class="btn secondary" onclick="shareList()">📱 Share List</button>
+                <button class="btn" onclick="printList()">🖨️ Print List</button>
+            </div>
+        </div>
+
+        <div class="shopping-tips">
+            <h3>💡 Smart Shopping Tips</h3>
+            <div class="tips-grid">
+                <div class="tip">
+                    <span class="tip-icon">🕐</span>
+                    <p><strong>Best Time:</strong> Shop early morning or evening for freshest vegetables</p>
+                </div>
+                <div class="tip">
+                    <span class="tip-icon">💰</span>
+                    <p><strong>Save Money:</strong> Buy grains and lentils in bulk for better prices</p>
+                </div>
+                <div class="tip">
+                    <span class="tip-icon">🥬</span>
+                    <p><strong>Freshness:</strong> Check vegetable quality - firm, bright colors, no dark spots</p>
+                </div>
+                <div class="tip">
+                    <span class="tip-icon">🛒</span>
+                    <p><strong>Organization:</strong> Shop in order: dry goods → vegetables → dairy last</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function generateList() {
+            // Add interactive functionality to regenerate list
+            alert('List regenerated based on your preferences!');
+        }
+
+        function downloadList() {
+            alert('Shopping list downloaded!');
+        }
+
+        function shareList() {
+            alert('Share functionality - integrate with WhatsApp/SMS');
+        }
+
+        function printList() {
+            window.print();
+        }
+
+        // Update total cost when items are unchecked
+        document.addEventListener('change', function(e) {
+            if (e.target.type === 'checkbox') {
+                updateTotalCost();
+            }
+        });
+
+        function updateTotalCost() {
+            // Simple calculation - in real app, would sum actual prices
+            const checkedItems = document.querySelectorAll('input[type="checkbox"]:checked').length;
+            const avgPrice = 47; // Average price per item
+            document.getElementById('total-cost').textContent = (checkedItems * avgPrice).toLocaleString();
+        }
+    </script>
+</body>
+</html>

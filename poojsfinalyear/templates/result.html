@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meal Plan Result</title>
+    <link rel="stylesheet" href="/static/style.css?v=2025">
+</head>
+<body>
+    <div class="container">
+        <h1>Here is Your Personalized Meal Plan</h1>
+        <p><strong>Name:</strong> {{ name }}</p>
+        <p><strong>Age:</strong> {{ age }}, <strong>Gender:</strong> {{ gender }}</p>
+        <p><strong>BMI:</strong> {{ bmi }} ({{ bmi_cat }})</p>
+        <p><strong>Recommended Daily Calories:</strong> {{ rec_cal }} kcal</p>
+        <p><strong>Recommended Vitamin A:</strong> {{ rec_a }} µg</p>
+        <p><strong>Recommended Vitamin B:</strong> {{ rec_b }} mg</p>
+        <p><strong>Recommended Vitamin C:</strong> {{ rec_c }} mg</p>
+    <p><strong>Diet Type:</strong> {{ diet_type }} | <strong>Preference:</strong> {{ diet_pref }}</p>
+        <h2>{{ plan_type }} Meal Plan</h2>
+        <table class="meal-table">
+            <tr>
+                <th>Day</th><th>Breakfast</th><th>Lunch</th><th>Dinner</th>{% if show_snack %}<th>Snack</th>{% endif %}
+            </tr>
+            {% for entry in plan %}
+            <tr>
+                <td>{{ entry.day }}</td>
+                <td>{{ entry.Breakfast }}</td>
+                <td>{{ entry.Lunch }}</td>
+                <td>{{ entry.Dinner }}</td>
+                {% if show_snack %}<td>{{ entry.Snack }}</td>{% endif %}
+            </tr>
+            {% endfor %}
+        </table>
+        <h2>Nutrition Summary</h2>
+        <div class="nutrition-stats">
+            <p><strong>Total Weekly Meals:</strong> {{ nutrition_summary.total_meals }}</p>
+            <p><strong>Dietary Preference:</strong> {{ nutrition_summary.dietary_preference }}</p>
+            <p><strong>Health Focus:</strong> {{ nutrition_summary.health_focus }}</p>
+            <p><strong>Meal Variety:</strong> {{ nutrition_summary.weekly_variety }} unique dishes</p>
+        </div>
+        
+        <div class="nav-buttons">
+            <a href="/meal-prep" class="nav-btn">🍳 Meal Prep Guide</a>
+            <a href="/recipes" class="nav-btn">👩‍🍳 View Recipes</a>
+            <a href="/progress" class="nav-btn">📊 Track Progress</a>
+            <a href="/shopping" class="nav-btn">🛒 Shopping List</a>
+        </div>
+        <p>Please follow this plan and record your feedback. After one week, revisit the form to refine it further.</p>
+    </div>
+</body>
+</html>

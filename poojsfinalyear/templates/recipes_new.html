@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recipe Collection - AI Meal Planner</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="nav-buttons">
+            <a href="/" class="nav-btn">🏠 Home</a>
+            <a href="/meal-prep" class="nav-btn">🍳 Meal Prep</a>
+            <a href="/recipes" class="nav-btn">📖 Recipes</a>
+            <a href="/progress" class="nav-btn">📊 Progress</a>
+            <a href="/shopping" class="nav-btn">🛒 Shopping</a>
+        </nav>
+        
+        <h1>📖 Indian Recipe Collection</h1>
+        
+        <div class="recipe-grid">
+            {% for recipe in recipes %}
+            <div class="recipe-card fade-in">
+                <div class="recipe-header">
+                    <div class="recipe-title">{{ recipe.name }}</div>
+                    <div class="recipe-meta">
+                        <span>⏱️ {{ recipe.time }}</span>
+                        <span>📊 {{ recipe.difficulty }}</span>
+                    </div>
+                </div>
+                <div class="recipe-body">
+                    <div class="nutrition-info">
+                        <span class="calories">🔥 {{ recipe.calories }} calories</span>
+                    </div>
+                    <div class="recipe-actions" style="margin-top: 20px;">
+                        <a href="{{ recipe.youtube_link }}" target="_blank" class="btn-primary" style="text-decoration: none; text-align: center; display: block; margin: 0;">
+                            🎥 Watch Recipe on YouTube
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <div class="info-box">
+            <h3>🎬 How to use YouTube links:</h3>
+            <p>Click "Watch Recipe on YouTube" to see video tutorials. These links will search for the specific recipe with cooking instructions!</p>
+        </div>
+    </div>
+</body>
+</html>

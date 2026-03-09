@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Progress Tracker - AI Meal Planner</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="nav-bar">
+            <a href="/">🏠 Home</a>
+            <a href="/meal-prep">🍳 Meal Prep</a>
+            <a href="/recipes">📖 Recipes</a>
+            <a href="/progress" class="active">📊 Progress</a>
+            <a href="/shopping">🛒 Shopping</a>
+        </nav>
+        
+        <h1>📊 Health & Nutrition Progress Tracker</h1>
+        
+        <div class="progress-overview">
+            <div class="stat-card">
+                <h3>Current Week</h3>
+                <div class="stat-number">7</div>
+                <p>Days Planned</p>
+            </div>
+            <div class="stat-card">
+                <h3>Adherence</h3>
+                <div class="stat-number">85%</div>
+                <p>Meal Plan Followed</p>
+            </div>
+            <div class="stat-card">
+                <h3>Variety</h3>
+                <div class="stat-number">15</div>
+                <p>Unique Dishes</p>
+            </div>
+            <div class="stat-card">
+                <h3>Health Score</h3>
+                <div class="stat-number">Good</div>
+                <p>Based on BMI & Goals</p>
+            </div>
+        </div>
+
+        <div class="progress-section">
+            <h2>Weekly Meal Adherence</h2>
+            <div class="adherence-chart">
+                <div class="day-progress">
+                    <span class="day">Mon</span>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 100%"></div>
+                    </div>
+                    <span class="percentage">100%</span>
+                </div>
+                <div class="day-progress">
+                    <span class="day">Tue</span>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 80%"></div>
+                    </div>
+                    <span class="percentage">80%</span>
+                </div>
+                <div class="day-progress">
+                    <span class="day">Wed</span>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 90%"></div>
+                    </div>
+                    <span class="percentage">90%</span>
+                </div>
+                <div class="day-progress">
+                    <span class="day">Thu</span>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 70%"></div>
+                    </div>
+                    <span class="percentage">70%</span>
+                </div>
+                <div class="day-progress">
+                    <span class="day">Fri</span>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 95%"></div>
+                    </div>
+                    <span class="percentage">95%</span>
+                </div>
+                <div class="day-progress">
+                    <span class="day">Sat</span>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 85%"></div>
+                    </div>
+                    <span class="percentage">85%</span>
+                </div>
+                <div class="day-progress">
+                    <span class="day">Sun</span>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 75%"></div>
+                    </div>
+                    <span class="percentage">75%</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="progress-section">
+            <h2>Health Goals Progress</h2>
+            <div class="goals-grid">
+                <div class="goal-card">
+                    <h3>🎯 Weight Goal</h3>
+                    <div class="goal-progress">
+                        <div class="goal-bar">
+                            <div class="goal-fill" style="width: 60%"></div>
+                        </div>
+                        <span>60% towards target</span>
+                    </div>
+                    <p>Target: Maintain healthy BMI</p>
+                </div>
+                <div class="goal-card">
+                    <h3>🥗 Nutrition Balance</h3>
+                    <div class="nutrition-breakdown">
+                        <div class="nutrient">
+                            <span>Protein</span>
+                            <div class="nutrient-bar">
+                                <div class="nutrient-fill protein" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="nutrient">
+                            <span>Carbs</span>
+                            <div class="nutrient-bar">
+                                <div class="nutrient-fill carbs" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div class="nutrient">
+                            <span>Fats</span>
+                            <div class="nutrient-bar">
+                                <div class="nutrient-fill fats" style="width: 70%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="goal-card">
+                    <h3>💧 Hydration</h3>
+                    <div class="hydration-tracker">
+                        <div class="water-glasses">
+                            <span class="glass filled">💧</span>
+                            <span class="glass filled">💧</span>
+                            <span class="glass filled">💧</span>
+                            <span class="glass filled">💧</span>
+                            <span class="glass filled">💧</span>
+                            <span class="glass">💧</span>
+                            <span class="glass">💧</span>
+                            <span class="glass">💧</span>
+                        </div>
+                        <p>5/8 glasses today</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="progress-section">
+            <h2>Weekly Achievements</h2>
+            <div class="achievements">
+                <div class="achievement earned">
+                    <span class="badge">🏆</span>
+                    <div class="achievement-info">
+                        <h4>Consistent Eater</h4>
+                        <p>Followed meal plan 5+ days this week</p>
+                    </div>
+                </div>
+                <div class="achievement earned">
+                    <span class="badge">🌱</span>
+                    <div class="achievement-info">
+                        <h4>Veggie Champion</h4>
+                        <p>Included vegetables in every meal</p>
+                    </div>
+                </div>
+                <div class="achievement">
+                    <span class="badge">⭐</span>
+                    <div class="achievement-info">
+                        <h4>Perfect Week</h4>
+                        <p>Follow plan 100% for 7 days (6/7 days)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="insights-section">
+            <h2>💡 Personal Insights</h2>
+            <div class="insights">
+                <div class="insight">
+                    <span class="insight-icon">📈</span>
+                    <p><strong>Trending Up:</strong> Your meal consistency has improved 15% this week!</p>
+                </div>
+                <div class="insight">
+                    <span class="insight-icon">🍎</span>
+                    <p><strong>Nutrition Tip:</strong> Consider adding more fruits to reach your vitamin C goals.</p>
+                </div>
+                <div class="insight">
+                    <span class="insight-icon">⏰</span>
+                    <p><strong>Best Time:</strong> You're most consistent with lunch meals (95% adherence).</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="action-section">
+            <div class="action-buttons">
+                <a href="/" class="btn primary">Plan Next Week</a>
+                <a href="/meal-prep" class="btn">Meal Prep Guide</a>
+                <a href="/recipes" class="btn secondary">Browse Recipes</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
